@@ -1,4 +1,15 @@
-export default function KeypadButton({ letter, currentWord, setCurrentWord }) {
+import { verification } from "../utils/helper";
+
+export default function KeypadButton({
+  letter,
+  currentWord,
+  setCurrentWord,
+  answer,
+  testedWord,
+  setTestedWord,
+  currentIndex,
+  setCurrentIndex,
+}) {
   let isALetter = true;
   if (letter === "enter" || letter === "delete") {
     isALetter = false;
@@ -22,6 +33,16 @@ export default function KeypadButton({ letter, currentWord, setCurrentWord }) {
           onClick={() => {
             if (letter === "delete") {
               setCurrentWord(currentWord.slice(0, -1));
+            } else if (letter === "enter") {
+              verification(
+                currentWord,
+                setCurrentWord,
+                answer,
+                testedWord,
+                setTestedWord,
+                currentIndex,
+                setCurrentIndex
+              );
             }
           }}
         >

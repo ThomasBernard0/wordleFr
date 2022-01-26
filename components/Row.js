@@ -1,7 +1,7 @@
 import Case from "./Case";
 
-export default function Row({ index }) {
-  const lettres = [0, 1, 2, 3, 4];
+export default function Row({ word }) {
+  const lettres = word.split("");
   return (
     <div className="row">
       {lettres.map((lettre, index) => (
