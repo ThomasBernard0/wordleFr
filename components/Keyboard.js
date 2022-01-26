@@ -1,6 +1,6 @@
 import KeypadButton from "./KeypadButton";
 
-export default function Keyboard() {
+export default function Keyboard({ currentWord, setCurrentWord }) {
   const keypadButtons = [
     "a",
     "z",
@@ -34,7 +34,12 @@ export default function Keyboard() {
   return (
     <div className="keyboard">
       {keypadButtons.map((button) => (
-        <KeypadButton key={button} value={button} />
+        <KeypadButton
+          key={button}
+          letter={button}
+          currentWord={currentWord}
+          setCurrentWord={setCurrentWord}
+        />
       ))}
     </div>
   );
