@@ -61,8 +61,17 @@ a {
   align-items: center;
   height: 40px;
   width: auto;
+  background-color: lightgrey;
 }
 
 .span-2 {
   grid-column: auto/ span 2;
+}
+
+.orange {
+  background-color: orange;
+}
+
+.dark {
+  background-color: grey;
 }

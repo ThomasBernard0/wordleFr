@@ -15,6 +15,7 @@ export default function Home() {
     "     ",
   ]);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [testedLetters, setTestedLetters] = useState([]);
   useEffect(() => {
     setAnswer(getRandomWord());
   }, []);
@@ -31,6 +32,8 @@ export default function Home() {
         setTestedWord={setTestedWord}
         currentIndex={currentIndex}
         setCurrentIndex={setCurrentIndex}
+        testedLetters={testedLetters}
+        setTestedLetters={setTestedLetters}
       />
       <div>{answer}</div>
     </div>

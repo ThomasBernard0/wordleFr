@@ -9,7 +9,18 @@ export default function KeypadButton({
   setTestedWord,
   currentIndex,
   setCurrentIndex,
+  testedLetters,
+  setTestedLetters,
 }) {
+  let color = "keypad-button";
+  if (testedLetters.includes(letter)) {
+    if (answer.split("").includes(letter)) {
+      color = "keypad-button orange";
+    } else {
+      color = "keypad-button dark";
+    }
+  }
+
   let isALetter = true;
   if (letter === "enter" || letter === "delete") {
     isALetter = false;
@@ -18,7 +29,7 @@ export default function KeypadButton({
     <>
       {isALetter ? (
         <button
-          className="keypad-button"
+          className={color}
           onClick={() => {
             if (currentWord.length < 5) {
               setCurrentWord(currentWord + letter);
@@ -41,7 +52,9 @@ export default function KeypadButton({
                 testedWord,
                 setTestedWord,
                 currentIndex,
-                setCurrentIndex
+                setCurrentIndex,
+                testedLetters,
+                setTestedLetters
               );
             }
           }}

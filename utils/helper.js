@@ -10,7 +10,9 @@ export const verification = (
   testedWord,
   setTestedWord,
   currentIndex,
-  setCurrentIndex
+  setCurrentIndex,
+  testedLetters,
+  setTestedLetters
 ) => {
   if (!words.includes(currentWord)) {
     alert("Ce mot n'est pas dans notre base de données");
@@ -21,6 +23,7 @@ export const verification = (
       let newTestedWord = testedWord;
       newTestedWord[currentIndex] = currentWord;
       setTestedWord(newTestedWord);
+      setTestedLetters(testedLetters + currentWord.split(""));
       setCurrentIndex(currentIndex + 1);
       setCurrentWord("");
     }
