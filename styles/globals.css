@@ -27,9 +27,29 @@ a {
 
 .case {
   border: 1px solid black;
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.keyboard {
+  display: grid;
+  grid-template: repeat(3, 1fr) / repeat(10, 1fr);
+  gap: 2px;
+  width: 400px;
+}
+
+.keypad-button {
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  width: auto;
+}
+
+.span-2 {
+  grid-column: auto/ span 2;
 }
