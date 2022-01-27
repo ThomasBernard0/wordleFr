@@ -3,7 +3,7 @@ import { words } from "../data/words";
 export const getRandomWord = () =>
   words[Math.round(Math.random() * (words.length - 1))];
 
-export const verification = (
+export const verification = async (
   currentWord,
   setCurrentWord,
   answer,
@@ -14,12 +14,17 @@ export const verification = (
   testedLetters,
   setTestedLetters
 ) => {
+
+  if(currentWord.length!==5){
+    return
+  }
   let value;
-    fetch(`http://localhost:4000/wordle/exist/${currentWord.toLowerCase()}`)
-      .then((res) => res.json())
-      .then((val) => value=val?.word);
-      
-    if (value) {
+  await fetch(`http://localhost:4000/wordle/exist/${currentWord.toLowerCase()}`)
+    .then((res) => res.json())
+    .then((val) => value=val[0]?.word)
+    .then(()=>console.log(value));
+  
+  if (currentWord.toLowerCase()!==value) {
     alert("Ce mot n'est pas dans notre base de données");
     return;
   }

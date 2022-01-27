@@ -35,7 +35,7 @@ export default function Home() {
         currentIndex={currentIndex}
         setCurrentIndex={setCurrentIndex}
       />
-      <div>{answer}</div>
+      <div className="secret">{answer}</div>
     </div>
   );
 }

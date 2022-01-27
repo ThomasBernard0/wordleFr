@@ -83,3 +83,7 @@ a {
 .dark {
   background-color: grey;
 }
+
+.secret {
+  color: white;
+}
