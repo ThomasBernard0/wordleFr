@@ -72,6 +72,14 @@ a {
   background-color: orange;
 }
 
+.green {
+  background-color: green;
+}
+
+.neutral {
+  background-color: lightgrey;
+}
+
 .dark {
   background-color: grey;
 }

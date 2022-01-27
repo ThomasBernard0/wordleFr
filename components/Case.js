@@ -1,3 +1,3 @@
-export default function Case({ lettre }) {
-  return <div className="case">{lettre}</div>;
+export default function Case({ letter, color }) {
+  return <div className={`${color} case`}>{letter}</div>;
 }

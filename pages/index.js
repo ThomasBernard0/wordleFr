@@ -8,11 +8,12 @@ export default function Home() {
   const [currentWord, setCurrentWord] = useState("");
   const [answer, setAnswer] = useState("");
   const [testedWord, setTestedWord] = useState([
-    "     ",
-    "     ",
-    "     ",
-    "     ",
-    "     ",
+    ["", "", "", "", ""],
+    ["", "", "", "", ""],
+    ["", "", "", "", ""],
+    ["", "", "", "", ""],
+    ["", "", "", "", ""],
+    ["", "", "", "", ""],
   ]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [testedLetters, setTestedLetters] = useState([]);
@@ -22,7 +23,7 @@ export default function Home() {
   return (
     <div className="wrapper">
       <h1>Wordle FR</h1>
-      <Grid testedWord={testedWord} />
+      <Grid testedWord={testedWord} answer={answer} />
       <Guess currentWord={currentWord} />
       <Keyboard
         currentWord={currentWord}

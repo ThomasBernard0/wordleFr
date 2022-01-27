@@ -16,16 +16,18 @@ export const verification = (
 ) => {
   if (!words.includes(currentWord)) {
     alert("Ce mot n'est pas dans notre base de données");
-  } else {
-    if (currentWord === answer) {
-      alert("gg wp");
-    } else {
-      let newTestedWord = testedWord;
-      newTestedWord[currentIndex] = currentWord;
-      setTestedWord(newTestedWord);
-      setTestedLetters(testedLetters + currentWord.split(""));
-      setCurrentIndex(currentIndex + 1);
-      setCurrentWord("");
-    }
+    return;
   }
+
+  if (currentWord === answer) {
+    alert("gg wp");
+    return;
+  }
+
+  let newTestedWord = testedWord;
+  newTestedWord[currentIndex] = currentWord.split("");
+  setTestedWord(newTestedWord);
+  setTestedLetters(testedLetters + currentWord.split(""));
+  setCurrentIndex(currentIndex + 1);
+  setCurrentWord("");
 };
