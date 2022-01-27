@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { verification } from "../utils/helper";
 
 export default function KeypadButton({
@@ -14,13 +13,11 @@ export default function KeypadButton({
   setTestedLetters,
 }) {
   let color = "";
-  if (testedLetters.length) {
-    testedLetters.forEach((letterState) => {
-      if (letterState.letter === letter) {
-        color = letterState.color;
-      }
-    });
-  }
+  testedLetters?.forEach((letterState) => {
+    if (letterState.letter === letter) {
+      color = letterState.color;
+    }
+  });
 
   let isALetter = true;
   if (letter === "enter" || letter === "delete") {

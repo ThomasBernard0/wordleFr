@@ -30,7 +30,8 @@ export const verification = (
   newTestedWord[currentIndex] = letters;
   setTestedWord(newTestedWord);
 
-  const newTestedLetters = letters.map((letter, index) => {
+  let tmp = [];
+  letters.forEach((letter, index) => {
     let color;
     if (!answer.includes(letter)) {
       color = "dark";
@@ -41,11 +42,20 @@ export const verification = (
     if (letter === answer[index]) {
       color = "green";
     }
-    return { letter, color };
+    if (color === "green") {
+      tmp.find((obj) => obj.letter === letter)?.color = "green";
+      testedLetters.find((obj) => obj.letter === letter)?.color = "green";
+    }
+    if (
+      !tmp.some((x) => x.letter === letter) &&
+      !testedLetters.some((x) => x.letter === letter)
+    ) {
+      tmp.push({ letter, color });
+    }
   });
-  setTestedLetters([...testedLetters, ...newTestedLetters]);
-  console.log([...testedLetters, ...newTestedLetters]);
-  console.log(newTestedLetters);
+  setTestedLetters((testedLetters) => {
+    return [...testedLetters, ...tmp];
+  });
 
   setCurrentIndex(currentIndex + 1);
   setCurrentWord("");

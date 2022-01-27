@@ -1,3 +1,4 @@
+import { useState } from "react";
 import KeypadButton from "./KeypadButton";
 
 export default function Keyboard({
@@ -8,8 +9,6 @@ export default function Keyboard({
   setTestedWord,
   currentIndex,
   setCurrentIndex,
-  testedLetters,
-  setTestedLetters,
 }) {
   const keypadButtons = [
     "A",
@@ -41,6 +40,7 @@ export default function Keyboard({
     "N",
     "delete",
   ];
+  const [testedLetters, setTestedLetters] = useState([]);
   return (
     <div className="keyboard">
       {keypadButtons.map((button) => (
