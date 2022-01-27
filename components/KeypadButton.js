@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { verification } from "../utils/helper";
 
 export default function KeypadButton({
@@ -12,24 +13,25 @@ export default function KeypadButton({
   testedLetters,
   setTestedLetters,
 }) {
-  let color = "keypad-button";
-  if (testedLetters.includes(letter)) {
-    if (answer.split("").includes(letter)) {
-      color = "keypad-button orange";
-    } else {
-      color = "keypad-button dark";
-    }
+  let color = "";
+  if (testedLetters.length) {
+    testedLetters.forEach((letterState) => {
+      if (letterState.letter === letter) {
+        color = letterState.color;
+      }
+    });
   }
 
   let isALetter = true;
   if (letter === "enter" || letter === "delete") {
     isALetter = false;
   }
+
   return (
     <>
       {isALetter ? (
         <button
-          className={color}
+          className={`${color} keypad-button`}
           onClick={() => {
             if (currentWord.length < 5) {
               setCurrentWord(currentWord + letter);

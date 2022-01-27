@@ -24,10 +24,29 @@ export const verification = (
     return;
   }
 
+  let letters = currentWord.split("");
+
   let newTestedWord = testedWord;
-  newTestedWord[currentIndex] = currentWord.split("");
+  newTestedWord[currentIndex] = letters;
   setTestedWord(newTestedWord);
-  setTestedLetters(testedLetters + currentWord.split(""));
+
+  const newTestedLetters = letters.map((letter, index) => {
+    let color;
+    if (!answer.includes(letter)) {
+      color = "dark";
+    }
+    if (answer.includes(letter)) {
+      color = "orange";
+    }
+    if (letter === answer[index]) {
+      color = "green";
+    }
+    return { letter, color };
+  });
+  setTestedLetters([...testedLetters, ...newTestedLetters]);
+  console.log([...testedLetters, ...newTestedLetters]);
+  console.log(newTestedLetters);
+
   setCurrentIndex(currentIndex + 1);
   setCurrentWord("");
 };
