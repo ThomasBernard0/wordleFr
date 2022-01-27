@@ -2,7 +2,6 @@ import Grid from "../components/Grid";
 import Keyboard from "../components/Keyboard";
 import Guess from "../components/Guess";
 import { useState, useEffect } from "react";
-import { getRandomWord } from "../utils/helper";
 
 export default function Home() {
   const [currentWord, setCurrentWord] = useState("");
@@ -17,8 +16,11 @@ export default function Home() {
   ]);
   const [currentIndex, setCurrentIndex] = useState(0);
   useEffect(() => {
-    setAnswer(getRandomWord());
+    fetch("http://localhost:4000/wordle/word/")
+      .then((res) => res.json())
+      .then((val) => setAnswer(val[0].word.toUpperCase()));
   }, []);
+
   return (
     <div className="wrapper">
       <h1>Wordle FR</h1>

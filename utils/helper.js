@@ -14,7 +14,12 @@ export const verification = (
   testedLetters,
   setTestedLetters
 ) => {
-  if (!words.includes(currentWord)) {
+  let value;
+    fetch(`http://localhost:4000/wordle/exist/${currentWord.toLowerCase()}`)
+      .then((res) => res.json())
+      .then((val) => value=val?.word);
+      
+    if (value) {
     alert("Ce mot n'est pas dans notre base de données");
     return;
   }
