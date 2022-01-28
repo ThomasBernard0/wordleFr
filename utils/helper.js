@@ -12,7 +12,7 @@ export const verification = async (
   currentIndex,
   setCurrentIndex,
   testedLetters,
-  setTestedLetters
+  setTestedLetters,setDisplayWin
 ) => {
 
   if(currentWord.length!==5){
@@ -26,11 +26,6 @@ export const verification = async (
   
   if (currentWord.toLowerCase()!==value) {
     alert("Ce mot n'est pas dans notre base de données");
-    return;
-  }
-
-  if (currentWord === answer) {
-    alert("gg wp");
     return;
   }
 
@@ -69,4 +64,9 @@ export const verification = async (
 
   setCurrentIndex(currentIndex + 1);
   setCurrentWord("");
+
+  if (currentWord === answer) {
+    setDisplayWin(true);
+    return;
+  }
 };

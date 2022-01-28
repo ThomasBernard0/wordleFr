@@ -1,5 +1,6 @@
 import Grid from "../components/Grid";
 import Keyboard from "../components/Keyboard";
+import ModalVictory from "../components/ModalVictory";
 import { useState, useEffect } from "react";
 
 export default function Home() {
@@ -14,6 +15,7 @@ export default function Home() {
     ["", "", "", "", ""],
   ]);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [displayWin, setDisplayWin] = useState(false);
   useEffect(() => {
     fetch("http://localhost:4000/wordle/word/")
       .then((res) => res.json())
@@ -36,8 +38,10 @@ export default function Home() {
         setTestedWord={setTestedWord}
         currentIndex={currentIndex}
         setCurrentIndex={setCurrentIndex}
+        setDisplayWin={setDisplayWin}
       />
       <div className="secret">{answer}</div>
+      {displayWin && <ModalVictory setDisplayWin={setDisplayWin} />}
     </div>
   );
 }

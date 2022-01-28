@@ -9,6 +9,7 @@ export default function Keyboard({
   setTestedWord,
   currentIndex,
   setCurrentIndex,
+  setDisplayWin,
 }) {
   const keypadButtons = [
     "A",
@@ -56,6 +57,7 @@ export default function Keyboard({
           setCurrentIndex={setCurrentIndex}
           testedLetters={testedLetters}
           setTestedLetters={setTestedLetters}
+          setDisplayWin={setDisplayWin}
         />
       ))}
     </div>
