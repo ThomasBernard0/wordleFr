@@ -12,6 +12,7 @@ export default function KeypadButton({
   testedLetters,
   setTestedLetters,
   setDisplayWin,
+  setDisplayLoss,
 }) {
   let color = "";
   testedLetters?.forEach((letterState) => {
@@ -63,7 +64,8 @@ export default function KeypadButton({
                 setCurrentIndex,
                 testedLetters,
                 setTestedLetters,
-                setDisplayWin
+                setDisplayWin,
+                setDisplayLoss
               );
             }
           }}

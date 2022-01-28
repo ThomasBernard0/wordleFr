@@ -12,7 +12,9 @@ export const verification = async (
   currentIndex,
   setCurrentIndex,
   testedLetters,
-  setTestedLetters,setDisplayWin
+  setTestedLetters,
+  setDisplayWin,
+  setDisplayLoss
 ) => {
 
   if(currentWord.length!==5){
@@ -67,6 +69,11 @@ export const verification = async (
 
   if (currentWord === answer) {
     setDisplayWin(true);
+    return;
+  }
+
+  if (currentIndex===5){
+    setDisplayLoss(true);
     return;
   }
 };

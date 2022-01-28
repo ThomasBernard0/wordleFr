@@ -9,7 +9,10 @@ export default function Keyboard({
   setTestedWord,
   currentIndex,
   setCurrentIndex,
+  testedLetters,
+  setTestedLetters,
   setDisplayWin,
+  setDisplayLoss,
 }) {
   const keypadButtons = [
     "A",
@@ -41,7 +44,6 @@ export default function Keyboard({
     "N",
     "delete",
   ];
-  const [testedLetters, setTestedLetters] = useState([]);
   return (
     <div className="keyboard">
       {keypadButtons.map((button) => (
@@ -58,6 +60,7 @@ export default function Keyboard({
           testedLetters={testedLetters}
           setTestedLetters={setTestedLetters}
           setDisplayWin={setDisplayWin}
+          setDisplayLoss={setDisplayLoss}
         />
       ))}
     </div>

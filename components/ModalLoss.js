@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 
 export default function ModalVictory({
-  setDisplayWin,
+  setDisplayLoss,
   setAnswer,
   setTestedWord,
   setTestedLetters,
@@ -14,11 +14,11 @@ export default function ModalVictory({
       .then((val) => (newAnswer = val[0].word.toUpperCase()));
   }, []);
   return (
-    <div className="modal-victory">
-      <span>Bien joué</span>
+    <div className="modal-loss">
+      <span>Perdu</span>
       <button
         onClick={() => {
-          setDisplayWin(false);
+          setDisplayLoss(false);
           setAnswer(newAnswer);
           setTestedWord([
             ["", "", "", "", ""],
