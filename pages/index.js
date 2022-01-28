@@ -59,6 +59,7 @@ export default function Home() {
       {displayLoss && (
         <ModalLoss
           setDisplayLoss={setDisplayLoss}
+          answer={answer}
           setAnswer={setAnswer}
           setTestedWord={setTestedWord}
           setTestedLetters={setTestedLetters}

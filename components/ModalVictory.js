@@ -14,7 +14,7 @@ export default function ModalVictory({
       .then((val) => (newAnswer = val[0].word.toUpperCase()));
   }, []);
   return (
-    <div className="modal-victory">
+    <div className="modal victory">
       <span>Bien joué</span>
       <button
         onClick={() => {
