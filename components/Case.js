@@ -1,3 +1,3 @@
-export default function Case({ letter, color }) {
-  return <div className={`${color} case`}>{letter}</div>;
+export default function Case({ letter, color, isValid }) {
+  return <div className={`${isValid && color} case`}>{letter}</div>;
 }

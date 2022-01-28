@@ -31,7 +31,11 @@ export default function KeypadButton({
           className={`${color} keypad-button`}
           onClick={() => {
             if (currentWord.length < 5) {
-              setCurrentWord(currentWord + letter);
+              let newCurrentWord = currentWord + letter;
+              setCurrentWord(newCurrentWord);
+              let newTestedWord = testedWord;
+              newTestedWord[currentIndex] = newCurrentWord.split("");
+              setTestedWord(newTestedWord);
             }
           }}
         >
@@ -42,7 +46,11 @@ export default function KeypadButton({
           className="keypad-button span-2"
           onClick={() => {
             if (letter === "delete") {
-              setCurrentWord(currentWord.slice(0, -1));
+              let newCurrentWord = currentWord.slice(0, -1);
+              setCurrentWord(newCurrentWord);
+              let newTestedWord = testedWord;
+              newTestedWord[currentIndex] = newCurrentWord.split("");
+              setTestedWord(newTestedWord);
             } else if (letter === "enter") {
               verification(
                 currentWord,

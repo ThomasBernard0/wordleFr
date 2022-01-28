@@ -1,6 +1,5 @@
 import Grid from "../components/Grid";
 import Keyboard from "../components/Keyboard";
-import Guess from "../components/Guess";
 import { useState, useEffect } from "react";
 
 export default function Home() {
@@ -24,8 +23,11 @@ export default function Home() {
   return (
     <div className="wrapper">
       <h1>Wordle FR</h1>
-      <Grid testedWord={testedWord} answer={answer} />
-      <Guess currentWord={currentWord} />
+      <Grid
+        testedWord={testedWord}
+        answer={answer}
+        currentIndex={currentIndex}
+      />
       <Keyboard
         currentWord={currentWord}
         setCurrentWord={setCurrentWord}

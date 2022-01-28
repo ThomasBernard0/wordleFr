@@ -1,7 +1,8 @@
 import Case from "./Case";
 import { useState, useEffect } from "react";
 
-export default function Row({ word, answer }) {
+export default function Row({ word, answer, isValid }) {
+  const length = [0, 1, 2, 3, 4];
   const [letterState, setLetterState] = useState([]);
   useEffect(() => {
     setLetterState(
@@ -21,8 +22,13 @@ export default function Row({ word, answer }) {
 
   return (
     <div className="row">
-      {letterState.map((state, index) => (
-        <Case key={index} letter={state.letter} color={state.color} />
+      {length.map((value, index) => (
+        <Case
+          key={index}
+          letter={letterState[value]?.letter}
+          color={letterState[value]?.color}
+          isValid={isValid}
+        />
       ))}
     </div>
   );
