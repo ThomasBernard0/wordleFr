@@ -16,7 +16,8 @@ export default function ModalLoss({
   }, []);
   return (
     <div className="modal loss">
-      <span>Perdu {answer}</span>
+      <span>Perdu</span>
+      <span>La réponse était : {answer}</span>
       <button
         onClick={() => {
           setDisplayLoss(false);

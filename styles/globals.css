@@ -102,14 +102,20 @@ h1 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 500px;
-  height: 300px;
+  width: 400px;
+  height: 200px;
+  background-color: rgb(18, 18, 19);
+  border: 3px solid rgb(58, 58, 60);
+  color: white;
 }
 
-.loss {
-  background-color: lightseagreen;
-}
-
-.victory {
-  background-color: lightcoral;
+.modal button {
+  border: none;
+  color: white;
+  background-color: rgb(83, 141, 78);
+  height: 40px;
+  width: 100px;
+  border-radius: 5px;
+  margin-top: 10px;
+  cursor: pointer;
 }
