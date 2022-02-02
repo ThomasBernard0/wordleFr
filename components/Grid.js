@@ -9,6 +9,7 @@ export default function Grid({ testedWord, answer, currentIndex }) {
           word={word}
           answer={answer}
           isValid={currentIndex !== index}
+          isUsed={currentIndex >= index}
         />
       ))}
     </div>
