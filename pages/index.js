@@ -46,7 +46,6 @@ export default function Home() {
         setDisplayWin={setDisplayWin}
         setDisplayLoss={setDisplayLoss}
       />
-      <div className="secret">{answer}</div>
       {displayWin && (
         <ModalVictory
           setDisplayWin={setDisplayWin}
