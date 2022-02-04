@@ -21,7 +21,7 @@ export const verification = async (
     return
   }
   let value;
-  await fetch(`http://localhost:4000/wordle/exist/${currentWord.toLowerCase()}`)
+  await fetch(`http://localhost:4000/wordle/${currentWord.toLowerCase()}`)
     .then((res) => res.json())
     .then((val) => value=val[0]?.word)
     .then(()=>console.log(value));

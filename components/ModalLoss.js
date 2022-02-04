@@ -10,7 +10,7 @@ export default function ModalLoss({
 }) {
   let newAnswer;
   useEffect(() => {
-    fetch("http://localhost:4000/wordle/word/")
+    fetch("http://localhost:4000/wordle")
       .then((res) => res.json())
       .then((val) => (newAnswer = val[0].word.toUpperCase()));
   }, []);

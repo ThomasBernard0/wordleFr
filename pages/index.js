@@ -20,7 +20,7 @@ export default function Home() {
   const [displayWin, setDisplayWin] = useState(false);
   const [displayLoss, setDisplayLoss] = useState(false);
   useEffect(() => {
-    fetch("http://localhost:4000/wordle/word/")
+    fetch("http://localhost:4000/wordle")
       .then((res) => res.json())
       .then((val) => setAnswer(val[0].word.toUpperCase()));
   }, []);
