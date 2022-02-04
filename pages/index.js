@@ -3,8 +3,34 @@ import Keyboard from "../components/Keyboard";
 import ModalVictory from "../components/ModalVictory";
 import ModalLoss from "../components/ModalLoss";
 import { useState, useEffect } from "react";
+import { verification } from "../utils/helper";
 
 export default function Home() {
+  function handleKeyboard(event) {
+    var letters = /^[A-Za-z]+$/;
+    if (event.key.match(letters) && currentWord.length < 5) {
+      let newCurrentWord = currentWord + event.key.toUpperCase();
+      setCurrentWord(newCurrentWord);
+      let newTestedWord = testedWord;
+      newTestedWord[currentIndex] = newCurrentWord.split("");
+      setTestedWord(newTestedWord);
+    }
+    if (event.key === "Enter") {
+      verification(
+        currentWord,
+        setCurrentWord,
+        answer,
+        testedWord,
+        setTestedWord,
+        currentIndex,
+        setCurrentIndex,
+        testedLetters,
+        setTestedLetters,
+        setDisplayWin,
+        setDisplayLoss
+      );
+    }
+  }
   const [currentWord, setCurrentWord] = useState("");
   const [answer, setAnswer] = useState("");
   const [testedWord, setTestedWord] = useState([
@@ -26,7 +52,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="wrapper">
+    <div className="wrapper" onKeyPress={handleKeyboard}>
       <h1>Wordle FR</h1>
       <Grid
         testedWord={testedWord}
